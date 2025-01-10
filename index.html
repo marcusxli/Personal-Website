@@ -4,15 +4,111 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <meta name="viewport" content="width-device-width, initial-scale-1.0">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 <div id="header">
-    
+    <div class="container">
+        <nav>
+            <img src="Personal_Website_images/logo.png" class="logo">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+
+            </ul>
+        </nav>
+        <div class="header-text">
+            <p>Data Science & Cybersecurity Student</p>
+            <h1>Hi, I'm Marcus Li.<br> Welcome!</h1>
+        </div>
+    </div>
 </div>
+
+<!-------------about---------------->
+
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="Personal_Website_images/ProfilePic.JPG">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>
+                    Hi, I'm Marcus Li, a passionate Data Science & Cybersecurity student with a strong foundation in 
+                    technology and a keen interest in solving real-world problems through innovation.
+
+                    My journey into the tech world began when I built my first computer during the pandemic, sparking
+                     a lifelong fascination with creating and understanding how things work. Since then, I’ve pursued opportunities 
+                     to expand my knowledge and skills, including learning Java, Python, SQL, and HTML and completing certifications in 
+                     Machine Learning and Cybersecurity.
+                    
+                    Currently, I am pursuing a Bachelor of Science in Data Science with a Minor in Cybersecurity at the 
+                    University of Washington. Along the way, I’ve undertaken projects like building an NBA Game Predictor, creating a 
+                    GIS Mapping Project, and designing a Workout App, all of which have honed my technical skills and problem-solving abilities.
+                    
+                    When I’m not immersed in coding or data analysis, I enjoy exploring new tools and technologies to stay 
+                    ahead in this ever-evolving field. My goal is to use my expertise to make a meaningful impact, whether it’s enhancing 
+                    security systems or uncovering insights through data.
+                    
+                    Let’s connect and create something extraordinary together!                
+                </p>
+
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>UI?UX</span><br>Designing Web/App Interfaces</li>
+                        <li><span>UI?UX</span><br>Designing Web/App Interfaces</li>
+                        <li><span>UI?UX</span><br>Designing Web/App Interfaces</li>
+                    </ul>
+                </div>
+
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>UI?UX</span><br>Designing Web/App Interfaces</li>
+                        <li><span>UI?UX</span><br>Designing Web/App Interfaces</li>
+                        <li><span>UI?UX</span><br>Designing Web/App Interfaces</li>
+                    </ul>
+                </div>
+
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2023-Present</span><br>University of Washington Bachelor of Science - BS, Data Visualization; Minor, Cybersecurity</li>
+                        <li><span>2021-2023</span><br>Bellevue College Associate of Arts and Sciences - AAS, Runnning Start</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+
 </body>
 
 </html>
