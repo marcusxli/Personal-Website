@@ -15,14 +15,15 @@
     <div class="container">
         <nav>
             <img src="Personal_Website_images/logo.png" class="logo">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Certifications</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
-
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fas fa-times" onclick="closemenu()"></i>
             </ul>
+            <i class="fas fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
             <p>Data Science & Cybersecurity Student</p>
@@ -117,8 +118,47 @@
                     <a href="https://public.tableau.com/app/profile/marcus.li8185/viz/HW6_17322351089060/Dashboard1"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
             </div>
+            <div class="work">
+                <img src="Personal_Website_images/projects-1.png">
+                <div class="layer">
+                    <h3>Free Flow Box</h3>
+                    <p>Data Visualization for Social Impact</p>
+                    <a href="https://public.tableau.com/app/profile/marcus.li8185/viz/HW6_17322351089060/Dashboard1"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
         </div>
         <a href="#" class="btn">View More</a>
+    </div>
+</div>
+
+<!-------------contact---------------->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-paper-plane"></i> limarcus04@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i>(808)724-8330</p>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/marcusxli/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/marcus-li-8o8/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/marcusxli"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <a href="Personal_Website_images/Li_Marcus_Resume.pdf" class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright &copy; Marcus Li. All Rights Reserved.</p>
     </div>
 </div>
 
@@ -138,6 +178,34 @@
         }
     </script>
 
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+        function openmenu(){
+            sidemenu.style.right = "0";
+        }
+        function closemenu(){
+            sidemenu.style.right = "-200px";
+        }
+    </script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbw4urH1_i2ESMPiMLCLr003r4gRN1CnFGfYch2vRXkE9QDicS5n2f2eGd-AsrRYd_H9/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById('msg')
+  
+        form.addEventListener('submit', e => {
+         e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+              msg.innerHTML = ""
+            }, 5000)
+            form.reset()
+          })
+         .catch(error => console.error('Error!', error.message))
+     })
+  </script>
 </body>
 
 </html>
